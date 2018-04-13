@@ -1,4 +1,4 @@
-# Copyright (c) 2015-2017 Anish Athalye. Released under GPLv3.
+# Copyright (c) 2015-2018 Anish Athalye. Released under GPLv3.
 
 import os
 
@@ -157,6 +157,12 @@ def main():
     if options.checkpoint_output and "%s" not in options.checkpoint_output:
         parser.error("To save intermediate images, the checkpoint output "
                      "parameter must contain `%s` (e.g. `foo%s.jpg`)")
+
+    # try saving a dummy image to the output path to make sure that it's writable
+    try:
+        imsave(options.output, np.zeros((500, 500, 3)))
+    except:
+        raise IOError('%s is not writable or does not have a valid file extension for an image file' % options.output)
 
     for iteration, image in stylize(
         network=options.network,
