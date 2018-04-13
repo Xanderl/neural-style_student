@@ -6,16 +6,19 @@ import numpy as np
 import scipy.misc
 
 from stylize import stylize
-
+#imports the stylize script
 import math
 from argparse import ArgumentParser
 
 from PIL import Image
+# imports everything that the neural net needs
 
 # default arguments
 CONTENT_WEIGHT = 5e0
+# the weight is how much the content image is used
 CONTENT_WEIGHT_BLEND = 1
 STYLE_WEIGHT = 5e2
+# how much the style image is used
 TV_WEIGHT = 1e2
 STYLE_LAYER_WEIGHT_EXP = 1
 LEARNING_RATE = 1e1
@@ -24,9 +27,10 @@ BETA2 = 0.999
 EPSILON = 1e-08
 STYLE_SCALE = 1.0
 ITERATIONS = 1000
+# the iterations is how many times the neural net runs the process
 VGG_PATH = 'imagenet-vgg-verydeep-19.mat'
 POOLING = 'max'
-
+# all this code just defines variables and adds error messages
 def build_parser():
     parser = ArgumentParser()
     parser.add_argument('--content',
@@ -111,7 +115,7 @@ def main():
 
     if not os.path.isfile(options.network):
         parser.error("Network %s does not exist. (Did you forget to download it?)" % options.network)
-
+# checks to see if network has been installed and creates an error message if it is not
     content_image = imread(options.content)
     style_images = [imread(style) for style in options.styles]
 
@@ -127,7 +131,7 @@ def main():
             style_scale = options.style_scales[i]
         style_images[i] = scipy.misc.imresize(style_images[i], style_scale *
                 target_shape[1] / style_images[i].shape[1])
-
+# this checks if the user has specified a width for the image it will create
     style_blend_weights = options.style_blend_weights
     if style_blend_weights is None:
         # default is equal weights
