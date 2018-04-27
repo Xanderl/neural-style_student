@@ -27,7 +27,7 @@ def load_net(data_path):
     mean_pixel = np.mean(mean, axis=(0, 1))
     weights = data['layers'][0]
     return weights, mean_pixel
-
+#uses preloaded weights if not specified
 def net_preloaded(weights, input_image, pooling):
     net = {}
     current = input_image
@@ -48,13 +48,13 @@ def net_preloaded(weights, input_image, pooling):
 
     assert len(net) == len(VGG19_LAYERS)
     return net
-
+#defining padding and weight for conv layer
 def _conv_layer(input, weights, bias):
     conv = tf.nn.conv2d(input, tf.constant(weights), strides=(1, 1, 1, 1),
             padding='SAME')
     return tf.nn.bias_add(conv, bias)
 
-
+#defining pooling and padding for the pool layer
 def _pool_layer(input, pooling):
     if pooling == 'avg':
         return tf.nn.avg_pool(input, ksize=(1, 2, 2, 1), strides=(1, 2, 2, 1),
@@ -62,10 +62,10 @@ def _pool_layer(input, pooling):
     else:
         return tf.nn.max_pool(input, ksize=(1, 2, 2, 1), strides=(1, 2, 2, 1),
                 padding='SAME')
-
+#subtracts mean pixels to image
 def preprocess(image, mean_pixel):
     return image - mean_pixel
 
-
+#adds mean pixels to image
 def unprocess(image, mean_pixel):
     return image + mean_pixel

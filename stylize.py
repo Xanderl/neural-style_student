@@ -227,7 +227,7 @@ def gray2rgb(gray):
     rgb = np.empty((w, h, 3), dtype=np.float32)
     rgb[:, :, 2] = rgb[:, :, 1] = rgb[:, :, 0] = gray
     return rgb
-
+#prints and defines seconds minutes and hours
 def hms(seconds):
     seconds = int(seconds)
     hours = (seconds // (60 * 60))
