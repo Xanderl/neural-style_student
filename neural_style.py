@@ -206,7 +206,7 @@ def imread(path):
         # PNG with alpha channel
         img = img[:,:,:3]
     return img
-
+#saves resulting image
 
 def imsave(path, img):
     img = np.clip(img, 0, 255).astype(np.uint8)

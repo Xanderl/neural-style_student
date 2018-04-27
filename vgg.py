@@ -18,7 +18,7 @@ VGG19_LAYERS = (
     'conv5_1', 'relu5_1', 'conv5_2', 'relu5_2', 'conv5_3',
     'relu5_3', 'conv5_4', 'relu5_4'
 )
-
+#loads data and checks to see if its the right data
 def load_net(data_path):
     data = scipy.io.loadmat(data_path)
     if not all(i in data for i in ('layers', 'classes', 'normalization')):
