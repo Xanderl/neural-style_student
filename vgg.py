@@ -48,13 +48,13 @@ def net_preloaded(weights, input_image, pooling):
 
     assert len(net) == len(VGG19_LAYERS)
     return net
-#defining padding and weight for conv layer
+#defining padding and weight for conv layer more info about conv can be found at https://www.tensorflow.org/api_docs/python/tf/nn/conv2d
 def _conv_layer(input, weights, bias):
     conv = tf.nn.conv2d(input, tf.constant(weights), strides=(1, 1, 1, 1),
             padding='SAME')
     return tf.nn.bias_add(conv, bias)
 
-#defining pooling and padding for the pool layer
+#defining pooling and padding for the pool layer more info about tf.nn.avg_pool can be found at https://www.tensorflow.org/api_docs/python/tf/nn/avg_pool
 def _pool_layer(input, pooling):
     if pooling == 'avg':
         return tf.nn.avg_pool(input, ksize=(1, 2, 2, 1), strides=(1, 2, 2, 1),
