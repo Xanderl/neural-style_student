@@ -1,5 +1,10 @@
-
 import os
 
-os.system("python neural_style.py --content hal9000.png --styles bob.jpg --output phal321.jpg --width 500")
+
+img = input("content enter hal9000.png:")
+pic = input("style enter bob.jpg:")
+name = input("name enter name of new file .png:")
+
+os.system("python neural_style.py --content " + img +" --styles " + pic +" --output " + name +" --width 500")
+
 
