@@ -1,7 +1,7 @@
 import http.client, json
-app_token = "NDI4NjEzOTAzOTY3MzIyMTEy.DeBn-Q.z_BgHph0_UoG8iglTEfpdhknzgI"
-channel_id = "423897351422214146"
-web_hk = "api/webhooks/447095306841227264/M77Jr-7jT4bIwHEToxNOw1HXzBe4q8-ZOdao6QHZw5ExbhYiVpu8fVKyZVz-Bc4UOQWZ"
+app_token = "NDQ0NTAxMzc3NjU4NjUwNjUz.DeOtQA.kvh4om4oBfHQjcRUZOVhH5fc4Ps"
+channel_id = "430462706559090691"
+web_hk = "api/webhooks/444503005740531714/1r7MT6IfPRwplxY3s3AW3PkwqlGgQltOQfZLA-UbBFLNafkrjDdXreKOt8PmogmPUKTo"
 latest_timestamp = ""
 
 def query_server():
