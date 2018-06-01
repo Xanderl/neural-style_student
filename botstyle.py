@@ -35,4 +35,4 @@ async def style(ncontent: str, styles: str, name: str):
 #os.system("python neural_style.py --content " + img +" --styles " + pic +" --output " + name +" --width 500")
 
 
-bot.run("NDQ0NTAxMzc3NjU4NjUwNjUz.DeOtQA.kvh4om4oBfHQjcRUZOVhH5fc4Ps")
+bot.run("NDQ0NTAxMzc3NjU4NjUwNjUz.DfLYWA.qX1hfqiqwO4ditVKrmUCQz57lGw")
